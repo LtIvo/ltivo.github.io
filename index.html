@@ -1,400 +1,510 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iván Reyes Lavandero - Desarrollador Fullstack</title>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Google Fonts -->
+    <title>Ivan Reyes - Desarrollador Full Stack</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Custom CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
-        :root {
-            --primary-color: #0d6efd;
-            --secondary-color: #6c757d;
-            --dark-color: #212529;
-            --light-color: #f8f9fa;
-            --background-dark: #1a1a1a;
-            --background-light-dark: #2c2c2c;
-        }
-
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--background-dark);
-            color: var(--light-color);
-            scroll-behavior: smooth;
+            background-color: #f5f8fd;
+            color: #444444;
         }
 
-        .navbar {
-            background-color: rgba(26, 26, 26, 0.85);
-            backdrop-filter: blur(10px);
-            transition: background-color 0.3s ease;
+        #hero {
+            background: url('img/dev-ivan.jpg') no-repeat center center;
+            background-size: cover;
         }
 
-        .navbar-brand,
-        .nav-link {
-            color: var(--light-color) !important;
-            font-weight: 600;
-        }
-
-        .nav-link.active,
-        .nav-link:hover {
-            color: var(--primary-color) !important;
-        }
-
-        .section {
-            padding: 100px 0;
-            border-bottom: 1px solid var(--background-light-dark);
-        }
-
-        #inicio {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.8)), url('https://placehold.co/1920x1080/2c2c2c/f8f9fa?text=Code') no-repeat center center/cover;
-        }
-
-        #inicio h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-        }
-
-        #inicio .lead {
-            font-size: 1.5rem;
-            font-weight: 300;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-            padding: 12px 24px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 15px rgba(13, 110, 253, 0.4);
-        }
-
-        .btn-outline-light {
-            padding: 12px 24px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .btn-outline-light:hover {
-            transform: translateY(-3px);
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-            font-size: 2.5rem;
-            font-weight: 600;
+        .section-title h2 {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
             position: relative;
         }
 
-        .section-title::after {
+        .section-title h2::after {
             content: '';
+            position: absolute;
             display: block;
-            width: 60px;
-            height: 4px;
-            background: var(--primary-color);
-            margin: 10px auto 0;
-            border-radius: 2px;
+            width: 50px;
+            height: 3px;
+            background: #149ddd;
+            bottom: 0;
+            left: 0;
         }
 
-        #sobre-mi img {
-            width: 250px;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 5px solid var(--primary-color);
+        .nav-link.active {
+            color: #149ddd !important;
         }
 
-        .skill-item {
-            background-color: var(--background-light-dark);
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .nav-link.active i {
+            color: #149ddd !important;
         }
 
-        .skill-item:hover {
+        .progress-bar {
+            background-color: #149ddd;
+            height: 10px;
+            border-radius: 5px;
+        }
+
+        .typed-cursor {
+            opacity: 1;
+            animation: typedjsBlink 0.7s infinite;
+        }
+
+        @keyframes typedjsBlink {
+            50% {
+                opacity: 0.0;
+            }
+        }
+
+        .resume-item {
+            padding-left: 20px;
+            border-left: 2px solid #1f5297;
+            position: relative;
+        }
+
+        .resume-item::before {
+            content: "";
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50px;
+            left: -9px;
+            top: 0;
+            background: #fff;
+            border: 2px solid #1f5297;
+        }
+
+        /* Estilos para la sección de portafolio */
+        .portfolio-item {
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .skill-item i {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        .project-card {
-            background-color: var(--background-light-dark);
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .project-card .card-body {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card .card-title {
-            color: var(--primary-color);
-        }
-
-        .project-card .card-footer {
-            background-color: transparent;
-            border-top: 1px solid #444;
-        }
-
-        .badge {
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        #contacto .form-control {
-            background-color: var(--background-light-dark);
-            border: 1px solid #444;
-            color: var(--light-color);
-            padding: 15px;
-        }
-
-        #contacto .form-control:focus {
-            background-color: var(--background-light-dark);
-            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-            border-color: var(--primary-color);
-            color: var(--light-color);
-        }
-
-        #contacto .social-links a {
-            color: var(--light-color);
-            font-size: 2rem;
-            margin: 0 15px;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-
-        #contacto .social-links a:hover {
-            color: var(--primary-color);
-            transform: translateY(-3px);
-        }
-
-        .footer {
-            background-color: var(--dark-color);
-            padding: 20px 0;
-            text-align: center;
-            color: var(--secondary-color);
         }
     </style>
 </head>
 
-<body data-bs-spy="scroll" data-bs-target="#mainNav">
+<body class="bg-gray-50 text-gray-800">
 
-    <!-- Navegación -->
-    <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#inicio">Iván Reyes L.</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#sobre-mi">Sobre Mí</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#habilidades">Habilidades</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-                </ul>
+    <!-- Header / Sidebar -->
+    <header id="header"
+        class="lg:w-72 lg:fixed lg:top-0 lg:left-0 lg:bottom-0 lg:bg-gray-900 lg:p-6 text-white flex flex-col items-center z-50 w-full bg-gray-900 p-4 lg:items-start">
+        <div class="flex flex-col items-center w-full">
+            <img src="img/dev-ivan.jpg" class="rounded-full w-32 h-32 border-4 border-gray-700 object-cover"
+                alt="Foto de Ivan Reyes">
+            <h1 class="text-2xl font-bold mt-4 text-center"><a href="index.html">Ivan Reyes</a></h1>
+            <div class="mt-2 text-center">
+                <a href="https://www.linkedin.com/in/ivan-reyes-9bbb3b238" target="_blank"
+                    class="text-gray-400 hover:text-white mx-2"><i class="fab fa-linkedin fa-lg"></i></a>
+                <a href="https://www.linkedin.com/in/ivan-reyes-9bbb3b238" target="_blank"
+                    class="text-gray-400 hover:text-white mx-2"><i class="fab fa-github fa-lg"></i></a>
             </div>
         </div>
-    </nav>
 
-    <!-- Sección Inicio -->
-    <section id="inicio">
-        <div class="container text-center text-white">
-            <h1 class="display-4 fw-bold">Iván Reyes Lavandero</h1>
-            <p class="lead my-4">Desarrollador de Software Fullstack | Transformando Ideas en Soluciones Digitales</p>
-            <a href="#proyectos" class="btn btn-primary btn-lg mx-2">Ver mis Proyectos</a>
-            <a href="#contacto" class="btn btn-outline-light btn-lg mx-2">Contactar</a>
-        </div>
-    </section>
+        <!-- Navigation Menu -->
+        <nav id="nav-menu" class="mt-10 w-full">
+            <ul class="flex flex-col space-y-2">
+                <li><a href="#hero" class="nav-link text-gray-400 hover:text-white flex items-center py-2 active"><i
+                            class="fas fa-home w-6 mr-2"></i> Inicio</a></li>
+                <li><a href="#about" class="nav-link text-gray-400 hover:text-white flex items-center py-2"><i
+                            class="fas fa-user w-6 mr-2"></i> Sobre Mí</a></li>
+                <li><a href="#resume" class="nav-link text-gray-400 hover:text-white flex items-center py-2"><i
+                            class="fas fa-file-alt w-6 mr-2"></i> Resumen</a></li>
+                <li><a href="#portfolio" class="nav-link text-gray-400 hover:text-white flex items-center py-2"><i
+                            class="fas fa-project-diagram w-6 mr-2"></i> Proyectos</a></li>
+                <li><a href="#skills" class="nav-link text-gray-400 hover:text-white flex items-center py-2"><i
+                            class="fas fa-cogs w-6 mr-2"></i> Habilidades</a></li>
+                <li><a href="#contact" class="nav-link text-gray-400 hover:text-white flex items-center py-2"><i
+                            class="fas fa-envelope w-6 mr-2"></i> Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- Sección Sobre Mí -->
-    <section id="sobre-mi" class="section">
-        <div class="container">
-            <h2 class="section-title">Sobre Mí</h2>
-            <div class="row align-items-center">
-                <div class="col-lg-4 text-center mb-4 mb-lg-0">
-                    <img src="https://placehold.co/400x400/0d6efd/f8f9fa?text=IRL" alt="Foto de Iván Reyes Lavandero">
-                </div>
-                <div class="col-lg-8">
-                    <h3 class="fw-bold">Licenciado en Informática y apasionado por la tecnología.</h3>
-                    <p class="lead">Mi nombre es Iván Reyes Lavandero. Soy un desarrollador con una sólida base en
-                        ingeniería de software y planificación de proyectos. Mi objetivo es crear software robusto,
-                        eficiente y escalable que aporte valor real.</p>
-                    <p>Más allá del código, soy padre de mellizos y un hombre de familia. En mis ratos libres, me
-                        encanta explorar nuevos lugares con mi esposa e hijos, sumergirme en la buena música (¡rock
-                        principalmente!), y desafiar mi mente con juegos de estrategia y planificación. Esta mezcla de
-                        análisis lógico y creatividad define mi enfoque tanto en la vida como en el desarrollo de
-                        software.</p>
-                </div>
+    <!-- Main Content -->
+    <main class="lg:ml-72">
+
+        <!-- Hero Section -->
+        <section id="hero" class="h-screen flex items-center justify-center text-white relative">
+            <div class="absolute inset-0 bg-black opacity-60"></div>
+            <div class="text-center z-10" data-aos="fade-in">
+                <h1 class="text-5xl md:text-7xl font-bold">Ivan Reyes</h1>
+                <p class="text-2xl md:text-3xl mt-4">Soy <span id="typed"></span></p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Sección Habilidades -->
-    <section id="habilidades" class="section bg-dark">
-        <div class="container">
-            <h2 class="section-title">Habilidades Técnicas</h2>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <div class="skill-item">
-                        <i class="fas fa-code"></i>
-                        <h4 class="fw-bold">Lenguajes</h4>
-                        <p>Python, C#, PHP, Java, JavaScript, HTML5, CSS3</p>
-                    </div>
+        <!-- About Section -->
+        <section id="about" class="py-20 px-6 md:px-12" data-aos="fade-up">
+            <div class="container mx-auto">
+                <div class="section-title mb-10">
+                    <h2>Sobre Mí</h2>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="skill-item">
-                        <i class="fas fa-database"></i>
-                        <h4 class="fw-bold">Bases de Datos</h4>
-                        <p>SQL Server, MySQL, MariaDB, PostgreSQL</p>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-2">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Desarrollador Web Full Stack & Python</h3>
+                        <p class="italic mb-4">
+                            Con más de 10 años de experiencia en el sector TI, soy un apasionado desarrollador de
+                            aplicaciones y sitios web, solucionador de problemas y líder de equipos.
+                        </p>
+                        <p class="mb-4">
+                            Mi carrera se ha centrado en el desarrollo de aplicaciones tanto front-end como back-end,
+                            siempre orientado a la experiencia del usuario final. Disfruto creando herramientas que no
+                            solo son funcionales y eficientes, sino también intuitivas y agradables de usar.
+                        </p>
+                        <p class="mb-4">
+                            Más allá del código, soy padre de mellizos y un hombre de familia. En mis ratos libres, me
+                            encanta explorar nuevos lugares con mi esposa e hijos, sumergirme en la buena música (¡rock
+                            principalmente!), y desafiar mi mente con juegos de estrategia y planificación. Esta mezcla
+                            de análisis lógico y creatividad define mi enfoque tanto en la vida como en el desarrollo de
+                            software.
+                        </p>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="skill-item">
-                        <i class="fas fa-cogs"></i>
-                        <h4 class="fw-bold">Otros Conocimientos</h4>
-                        <p>Linux, Windows, Ingeniería de Software, Planificación de Proyectos</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Proyectos -->
-    <section id="proyectos" class="section">
-        <div class="container">
-            <h2 class="section-title">Proyectos Destacados</h2>
-            <div class="row g-4">
-                <!-- Proyecto 1 -->
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                    <div class="project-card">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Analizador de Equipos en Red</h5>
-                            <p class="card-text">Herramienta para escanear y analizar dispositivos conectados a una red
-                                local, obteniendo información clave de rendimiento y seguridad.</p>
-                        </div>
-                        <div class="card-footer">
-                            <span class="badge bg-primary">Python</span>
-                            <span class="badge bg-secondary">Redes</span>
-                            <span class="badge bg-success float-end">Terminado</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Proyecto 2 -->
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                    <div class="project-card">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Lector de PDF Fiscal</h5>
-                            <p class="card-text">Aplicación capaz de extraer y procesar información de cuentas fiscales
-                                desde documentos PDF con un formato específico y estructurado.</p>
-                        </div>
-                        <div class="card-footer">
-                            <span class="badge bg-primary">C#</span>
-                            <span class="badge bg-secondary">PDF Parsing</span>
-                            <span class="badge bg-warning text-dark float-end">En Desarrollo</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Proyecto 3 -->
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                    <div class="project-card">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">IDE tipo Radzen en Python</h5>
-                            <p class="card-text">Ambicioso proyecto para crear un Entorno de Desarrollo Integrado en
-                                Python, enfocado en el desarrollo rápido de aplicaciones (RAD).</p>
-                        </div>
-                        <div class="card-footer">
-                            <span class="badge bg-primary">Python</span>
-                            <span class="badge bg-secondary">PyQt/Tkinter</span>
-                            <span class="badge bg-info text-dark float-end">En Planificación</span>
-                        </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Información Personal</h3>
+                        <ul>
+                            <li class="flex items-center mb-3"><i class="fas fa-chevron-right text-blue-500 mr-2"></i>
+                                <strong>Email:</strong> <span class="ml-2">it.ivo.hm@gmail.com</span>
+                            </li>
+                            <li class="flex items-center mb-3"><i class="fas fa-chevron-right text-blue-500 mr-2"></i>
+                                <strong>Teléfono:</strong> <span class="ml-2">+53 53066880</span>
+                            </li>
+                            <li class="flex items-center mb-3"><i class="fas fa-chevron-right text-blue-500 mr-2"></i>
+                                <strong>Ciudad:</strong> <span class="ml-2">Artemisa, Cuba</span>
+                            </li>
+                            <li class="flex items-center mb-3"><i class="fas fa-chevron-right text-blue-500 mr-2"></i>
+                                <strong>Idiomas:</strong> <span class="ml-2">Español, Inglés</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Sección Contacto -->
-    <section id="contacto" class="section bg-dark">
-        <div class="container">
-            <h2 class="section-title">Contacto</h2>
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <p class="lead mb-5">¿Tienes una idea o un proyecto en mente? No dudes en contactarme. Estoy
-                        disponible para colaboraciones y nuevos desafíos.</p>
-
-                    <div class="social-links mb-5">
-                        <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <!-- Resume Section -->
+        <section id="resume" class="py-20 px-6 md:px-12 bg-white" data-aos="fade-up">
+            <div class="container mx-auto">
+                <div class="section-title mb-10">
+                    <h2>Resumen Profesional</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Educación</h3>
+                        <div class="resume-item mb-6">
+                            <h4 class="text-xl font-semibold text-gray-800">Licenciatura en Educación, especialidad
+                                Informática</h4>
+                            <h5 class="bg-gray-200 inline-block px-2 py-1 text-sm font-semibold my-1 rounded">2017 -
+                                2021</h5>
+                            <p><em>Universidad de Artemisa (UA), Cuba</em></p>
+                        </div>
+                        <div class="resume-item mb-6">
+                            <h4 class="text-xl font-semibold text-gray-800">Técnico Especializado en Electricidad</h4>
+                            <h5 class="bg-gray-200 inline-block px-2 py-1 text-sm font-semibold my-1 rounded">2013 -
+                                2014</h5>
+                            <p><em>IPOL "Mártires de Guanajay", Cuba</em></p>
+                        </div>
+                        <div class="resume-item">
+                            <h4 class="text-xl font-semibold text-gray-800">Despachador del Sistema Eléctrico Nacional
+                                (SEN)</h4>
+                            <h5 class="bg-gray-200 inline-block px-2 py-1 text-sm font-semibold my-1 rounded">2018</h5>
+                            <p><em>Escuela Nacional de la Unión Eléctrica, Cuba</em></p>
+                        </div>
                     </div>
-
-                    <p class="h5">O envíame un correo electrónico a:</p>
-                    <a href="mailto:ivan.reyes.dev@email.com"
-                        class="h4 text-decoration-none text-primary">ivan.reyes.dev@email.com</a>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Experiencia Profesional</h3>
+                        <div class="resume-item mb-6">
+                            <h4 class="text-xl font-semibold text-gray-800">Despachador Provincial del SEN</h4>
+                            <h5 class="bg-gray-200 inline-block px-2 py-1 text-sm font-semibold my-1 rounded">2018 -
+                                2021</h5>
+                            <p><em>UEB Despacho de Carga Provincial, Artemisa</em></p>
+                            <ul class="list-disc list-inside mt-2 space-y-1">
+                                <li>Gestión y control de la operación de redes eléctricas.</li>
+                                <li>Desarrollo de un sistema de supervisión para reconectadores NULEC usando C#, Python,
+                                    PHP, CSS y JQuery.</li>
+                            </ul>
+                        </div>
+                        <div class="resume-item mb-6">
+                            <h4 class="text-xl font-semibold text-gray-800">Especialista en Redes y Sistemas</h4>
+                            <h5 class="bg-gray-200 inline-block px-2 py-1 text-sm font-semibold my-1 rounded">2011 -
+                                2017</h5>
+                            <p><em>UEB Despacho de Carga Provincial, Artemisa</em></p>
+                            <ul class="list-disc list-inside mt-2 space-y-1">
+                                <li>Implementación y supervisión del SIGERE.</li>
+                                <li>Desarrollo de un sitio web con PHP, SQL Server y Bootstrap para agilizar consultas.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="resume-item">
+                            <h4 class="text-xl font-semibold text-gray-800">Técnico en Gestión y Control</h4>
+                            <h5 class="bg-gray-200 inline-block px-2 py-1 text-sm font-semibold my-1 rounded">2009 -
+                                2011</h5>
+                            <p><em>EPG "Los Naranjos", Centro de Diseño de Software</em></p>
+                            <ul class="list-disc list-inside mt-2 space-y-1">
+                                <li>Desarrollo del sistema de gestión contable CONEC.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Iván Reyes Lavandero. Todos los derechos reservados.</p>
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-20 px-6 md:px-12" data-aos="fade-up">
+            <div class="container mx-auto">
+                <div class="section-title mb-10">
+                    <h2>Proyectos</h2>
+                    <p>Aquí hay una selección de proyectos en los que he trabajado. Algunos están terminados, otros en
+                        progreso, ¡y muchos más en camino!</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                    <!-- Project Item 1 -->
+                    <div class="portfolio-item bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up"
+                        data-aos-delay="100">
+                        <img src="https://placehold.co/600x400/149ddd/ffffff?text=Analizador+de+Red"
+                            alt="Analizador de Red" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <span
+                                class="inline-block bg-green-200 text-green-800 text-xs px-2 rounded-full uppercase font-semibold tracking-wide">Terminado</span>
+                            <h4 class="font-bold text-xl mt-2 mb-2">Analizador de Equipos en Red</h4>
+                            <p class="text-gray-600 text-sm">Herramienta para escanear y analizar dispositivos
+                                conectados en una red local, mostrando información detallada de cada equipo.</p>
+                        </div>
+                    </div>
+                    <!-- Project Item 2 -->
+                    <div class="portfolio-item bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up"
+                        data-aos-delay="200">
+                        <img src="https://placehold.co/600x400/149ddd/ffffff?text=Lector+PDF+Fiscal"
+                            alt="Lector PDF Fiscal" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <span
+                                class="inline-block bg-green-200 text-green-800 text-xs px-2 rounded-full uppercase font-semibold tracking-wide">Terminado</span>
+                            <h4 class="font-bold text-xl mt-2 mb-2">Lector de Cuentas Fiscales en PDF</h4>
+                            <p class="text-gray-600 text-sm">Aplicación que extrae y procesa información específica de
+                                documentos PDF con formato de cuenta fiscal para su análisis y gestión.</p>
+                        </div>
+                    </div>
+                    <!-- Project Item 3 -->
+                    <div class="portfolio-item bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up"
+                        data-aos-delay="300">
+                        <img src="https://placehold.co/600x400/149ddd/ffffff?text=IDE+Python" alt="IDE Python"
+                            class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <span
+                                class="inline-block bg-yellow-200 text-yellow-800 text-xs px-2 rounded-full uppercase font-semibold tracking-wide">En
+                                Desarrollo</span>
+                            <h4 class="font-bold text-xl mt-2 mb-2">IDE de Desarrollo Rápido</h4>
+                            <p class="text-gray-600 text-sm">Entorno de desarrollo integrado, inspirado en Radzen, para
+                                la creación rápida de aplicaciones web, construido sobre un núcleo de Python.</p>
+                        </div>
+                    </div>
+                    <!-- Project Item 4 -->
+                    <div class="portfolio-item bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up"
+                        data-aos-delay="400">
+                        <img src="https://placehold.co/600x400/149ddd/ffffff?text=Nuevas+Ideas" alt="Nuevas Ideas"
+                            class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <span
+                                class="inline-block bg-purple-200 text-purple-800 text-xs px-2 rounded-full uppercase font-semibold tracking-wide">Planeación</span>
+                            <h4 class="font-bold text-xl mt-2 mb-2">Proyectos Futuros</h4>
+                            <p class="text-gray-600 text-sm">Explorando activamente nuevas ideas para herramientas de
+                                automatización y aplicaciones de software innovadoras. ¡Próximamente más detalles!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 px-6 md:px-12 bg-white" data-aos="fade-up">
+            <div class="container mx-auto">
+                <div class="section-title mb-10">
+                    <h2>Habilidades Técnicas</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-base font-medium text-gray-700">HTML5, CSS3, JavaScript</span>
+                                <span class="text-sm font-medium text-gray-700">Avanzado</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="progress-bar" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-base font-medium text-gray-700">Python (Flask, Django)</span>
+                                <span class="text-sm font-medium text-gray-700">Avanzado</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="progress-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-base font-medium text-gray-700">PHP</span>
+                                <span class="text-sm font-medium text-gray-700">Avanzado</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="progress-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-base font-medium text-gray-700">Angular</span>
+                                <span class="text-sm font-medium text-gray-700">Intermedio</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="progress-bar" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-base font-medium text-gray-700">Bases de Datos (SQL Server, MySQL,
+                                    MariaDB)</span>
+                                <span class="text-sm font-medium text-gray-700">Avanzado</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="progress-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-base font-medium text-gray-700">Java, C#</span>
+                                <span class="text-sm font-medium text-gray-700">Intermedio</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="progress-bar" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-base font-medium text-gray-700">S.O. (Windows, Linux)</span>
+                                <span class="text-sm font-medium text-gray-700">Avanzado</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="progress-bar" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-base font-medium text-gray-700">Ingeniería de Software</span>
+                                <span class="text-sm font-medium text-gray-700">Avanzado</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="progress-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 px-6 md:px-12 bg-white" data-aos="fade-up">
+            <div class="container mx-auto">
+                <div class="section-title mb-10">
+                    <h2>Contacto</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="info-box flex flex-col items-center">
+                        <i
+                            class="fas fa-map-marker-alt text-3xl text-blue-500 bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center"></i>
+                        <h3 class="text-xl font-semibold mt-4">Dirección</h3>
+                        <p>Calle 36 No. 3536, Caimito, Artemisa, Cuba</p>
+                    </div>
+                    <div class="info-box flex flex-col items-center">
+                        <i
+                            class="fas fa-envelope text-3xl text-blue-500 bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center"></i>
+                        <h3 class="text-xl font-semibold mt-4">Email</h3>
+                        <p>it.ivo.hm@gmail.com</p>
+                        <p>lavandero86@nauta.cu</p>
+                    </div>
+                    <div class="info-box flex flex-col items-center">
+                        <i
+                            class="fas fa-phone text-3xl text-blue-500 bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center"></i>
+                        <h3 class="text-xl font-semibold mt-4">Teléfono</h3>
+                        <p>+53 53066880</p>
+                        <p>47 319120</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="lg:ml-72 text-center p-4 bg-gray-100">
+        <div class="text-sm text-gray-600">
+            &copy; Copyright <strong><span>Ivan Reyes</span></strong>. Todos los derechos reservados.
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Custom JS for active nav link -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Activa el enlace de navegación correspondiente a la sección visible
-        const mainNav = document.body.querySelector('#mainNav');
-        if (mainNav) {
-            new bootstrap.ScrollSpy(document.body, {
-                target: '#mainNav',
-                offset: 74,
+        document.addEventListener('DOMContentLoaded', () => {
+            // Inicializar AOS (Animate on Scroll)
+            AOS.init({
+                duration: 1000,
+                easing: 'ease-in-out',
+                once: true,
+                mirror: false
             });
-        };
+
+            // Efecto de escritura
+            if (document.getElementById('typed')) {
+                var typed = new Typed('#typed', {
+                    strings: ['Desarrollador Full Stack', 'Programador Python', 'Padre de Familia', 'Amante del Rock'],
+                    typeSpeed: 50,
+                    backSpeed: 50,
+                    loop: true
+                });
+            }
+
+            // Navegación activa al hacer scroll
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('#nav-menu a');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: '-30% 0px -70% 0px' }); // Ajusta el punto de activación
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Smooth scroll para los enlaces
+            navLinks.forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
     </script>
 </body>
 
